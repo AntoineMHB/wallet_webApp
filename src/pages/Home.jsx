@@ -9,11 +9,13 @@ import AddAccountForm from "@/components/forms/AddAccountForm";
 import AddBudgetForm from "@/components/forms/AddBudgetForm";
 import BudgetCard from "@/components/BudgetCard";
 import AddCategoryForm from "@/components/forms/AddCategoryForm";
+import AddExpenseForm from "@/components/forms/AddExpenseForm";
 
 const Home = () => {
   const [showAddAccountForm, setShowAddAccountForm] = useState(false); // State to control the form visibility
   const [showAddBudgetForm, setShowAddBudgetForm] = useState(false);
   const [showAddCategoryForm, setShowAddCategoryForm] = useState(false);
+  const [showAddExpenseForm, setShowAddExpenseForm] = useState(false);
 
   // Function to handle the display of the Add Account form
   const handleAddAccountClick = () => {
@@ -47,6 +49,17 @@ const Home = () => {
       setShowAddCategoryForm(false); // Close the form after adding a Category
     };
 
+
+       // Function to handle the display of the Add Expense form
+       const handleAddExpenseClick = () => {
+        setShowAddExpenseForm(true);
+      };
+    
+      // Function to close the Add Expense form
+      const handleExpenseAdded = () => {
+        setShowAddExpenseForm(false); // Close the form after adding a Expense
+      };
+
   return (
     <div className="bg-backgroundColor">
          {/* THE DASHBOARD TEXT */}
@@ -74,7 +87,8 @@ const Home = () => {
             
               <Button 
                 variant="secondary" 
-                className="bg-white mt-[10px] rounded-[25px] font-bold font-poppins border">Add Expense</Button>
+                className="bg-white mt-[10px] rounded-[25px] font-bold font-poppins border"
+                onClick={handleAddExpenseClick}>Add Expense</Button>
 
                 
               <Button 
@@ -133,6 +147,17 @@ const Home = () => {
           <div className="bg-white p-5 rounded-lg shadow-lg w-[400px]">
             <h2 className="text-xl font-semibold mb-4">Add Category</h2>
             <AddCategoryForm onCategoryAdded={handleCategoryAdded} />
+          </div>
+        </div>
+      )}
+
+
+      {/* Pop-up for Add Expense */}
+      {showAddExpenseForm && (
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-5 rounded-lg shadow-lg w-[400px]">
+            <h2 className="text-xl font-semibold mb-4">Add Expense</h2>
+            <AddExpenseForm onCategoryAdded={handleCategoryAdded} />
           </div>
         </div>
       )}

@@ -18,9 +18,9 @@ const Sidebar = () => {
 
   const SIDEBAR_LINKS = [
     {id:1, path: "/", name:"Dashboard", icon:IoHome},
-    {id:2, path: "/budgets", name:"Budgets", icon:TbMoneybag},
+    {id:2, path: "/budgets", name:"Categories", icon:TbMoneybag},
     {id:3, path: "/expenses", name:"Expenses", icon:LiaMoneyCheckAltSolid},
-    {id:4, path: "/reports", name:"Reports", icon:HiOutlineDocumentReport},
+    {id:4, path: "/reports", name:"Accounts", icon:HiOutlineDocumentReport},
     {id:5, path: "/settings", name:"Settings", icon:CiSettings},
     {id:6, path: "/logout", name:"Logout", icon:IoLogOut},
 ]
