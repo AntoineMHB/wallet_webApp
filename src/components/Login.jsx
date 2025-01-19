@@ -23,9 +23,16 @@ export function Login({  onLogin }) {
       });
 
       const data = response.data;
+      console.log(data);
 
-       // Save the token or handle authentication
+       // Save the token and additional user information or handle authentication
       localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify({
+        userId: data.userId,
+        firstname: data.firstname,
+        lastName: data.lastname,
+        email: data.email,
+      }));
       onLogin(true);
 
         // Navigate to the main app after successful login
