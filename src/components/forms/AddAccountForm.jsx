@@ -29,7 +29,14 @@ const AddAccountForm = ({ onAccountAdded }) => {
                 
             });
 
-            onAccountAdded(response.data);
+            const newAccount = response.data;
+
+            // save account to local storage
+            const storedAccounts = JSON.parse(localStorage.getItem("accounts")) || [];
+            storedAccounts.push(newAccount);
+            localStorage.setItem("accounts", JSON.stringify(storedAccounts));
+
+            onAccountAdded(newAccount);
             setAccountName("");
             setAccountAmount("");
         } catch (error) {

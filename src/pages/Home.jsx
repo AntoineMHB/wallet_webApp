@@ -8,10 +8,13 @@ import AccountsCard from "@/components/AccountsCard";
 import AddAccountForm from "@/components/forms/AddAccountForm";
 import AddBudgetForm from "@/components/forms/AddBudgetForm";
 import BudgetCard from "@/components/BudgetCard";
+import AddCategoryForm from "@/components/forms/AddCategoryForm";
 
 const Home = () => {
   const [showAddAccountForm, setShowAddAccountForm] = useState(false); // State to control the form visibility
   const [showAddBudgetForm, setShowAddBudgetForm] = useState(false);
+  const [showAddCategoryForm, setShowAddCategoryForm] = useState(false);
+
   // Function to handle the display of the Add Account form
   const handleAddAccountClick = () => {
     setShowAddAccountForm(true);
@@ -31,6 +34,17 @@ const Home = () => {
     // Function to close the Add Budget form
     const handleBudgetAdded = () => {
       setShowAddBudgetForm(false); // Close the form after adding an budget
+    };
+
+
+     // Function to handle the display of the Add Category form
+     const handleAddCategoryClick = () => {
+      setShowAddCategoryForm(true);
+    };
+  
+    // Function to close the Add Category form
+    const handleCategoryAdded = () => {
+      setShowAddCategoryForm(false); // Close the form after adding a Category
     };
 
   return (
@@ -61,6 +75,12 @@ const Home = () => {
               <Button 
                 variant="secondary" 
                 className="bg-white mt-[10px] rounded-[25px] font-bold font-poppins border">Add Expense</Button>
+
+                
+              <Button 
+                variant="secondary" 
+                className="bg-white mt-[10px] rounded-[25px] font-bold font-poppins border"
+                onClick={handleAddCategoryClick}>Add Category</Button>
             </div>
           </Card>
         </div>
@@ -101,8 +121,18 @@ const Home = () => {
        {showAddBudgetForm && (
         <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
           <div className="bg-white p-5 rounded-lg shadow-lg w-[400px]">
-            <h2 className="text-xl font-semibold mb-4">Set Account</h2>
+            <h2 className="text-xl font-semibold mb-4">Set Budget</h2>
             <AddBudgetForm onBudgetAdded={handleBudgetAdded} />
+          </div>
+        </div>
+      )}
+      
+      {/* Pop-up for Add Category */}
+      {showAddCategoryForm && (
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-5 rounded-lg shadow-lg w-[400px]">
+            <h2 className="text-xl font-semibold mb-4">Add Category</h2>
+            <AddCategoryForm onCategoryAdded={handleCategoryAdded} />
           </div>
         </div>
       )}
