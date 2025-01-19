@@ -23,6 +23,7 @@ Prerequisites:
 
 This is a basic guide to get started with this project and ensure that all core features are ready to go.
 
-Here's the public link
+Here's the public link:
+
 likuta-trac-web-app-upt7.vercel.app
 
